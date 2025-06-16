@@ -7,6 +7,9 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <Label Text="Jorge Ramos" 
+               FontSize="24"
+               HorizontalOptions="Center" />
             <Image
                 Source="dotnet_bot.png"
                 HeightRequest="185"
@@ -25,6 +28,10 @@
                 x:Name="BtnArchivo"
                 Text="Guardar en Archivo"
                 Clicked="BtnArchivo_Clicked"/>
+            <Button
+                x:Name="BtnAboutPage"
+                Text="Ir a About"
+                Clicked="BtnAboutPage_Clicked"/>
 
 
         </VerticalStackLayout>

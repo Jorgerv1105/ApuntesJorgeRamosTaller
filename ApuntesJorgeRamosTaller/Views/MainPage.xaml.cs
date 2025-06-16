@@ -1,4 +1,5 @@
 ﻿using ApuntesJorgeRamosTaller.Repositories;
+using ApuntesJorgeRamosTaller.Views;
 using System.Threading.Tasks;
 
 namespace ApuntesJorgeRamosTaller
@@ -28,6 +29,12 @@ namespace ApuntesJorgeRamosTaller
             bool guardar = await _fileRepository.CrearArchivo(texto);
 
             CargarInformacionArchivo();
+        }
+
+        private void BtnAboutPage_Clicked(object sender, EventArgs e)
+        {
+           Navigation.PushAsync(new AboutPage());
+
         }
     }
 
