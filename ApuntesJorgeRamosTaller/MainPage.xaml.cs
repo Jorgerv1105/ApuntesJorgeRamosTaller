@@ -1,18 +1,33 @@
-﻿namespace ApuntesJorgeRamosTaller
+﻿using ApuntesJorgeRamosTaller.Repositories;
+using System.Threading.Tasks;
+
+namespace ApuntesJorgeRamosTaller
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private FilesRepository _fileRepository;
 
         public MainPage()
         {
+            _fileRepository = new FilesRepository();
             InitializeComponent();
+
+            CargarInformacionArchivo(); 
+        }
+        private async void CargarInformacionArchivo()
+        { 
+            string infoArchivo = await _fileRepository.ObtenerInformacionArchivo();
+            InfoArchivo.Text = infoArchivo;
+
         }
 
 
-        private void BtnArchivo_Clicked(object sender, EventArgs e)
+        private async void BtnArchivo_Clicked(object sender, EventArgs e)
         {
+            string texto = TxtArchivo.Text;
+            bool guardar = await _fileRepository.CrearArchivo(texto);
 
+            CargarInformacionArchivo();
         }
     }
 
